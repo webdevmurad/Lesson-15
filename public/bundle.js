@@ -1803,7 +1803,7 @@ function modal() {
   // });
 
   function modalWindow(button) {
-    if (overlay.style.display === 'none') {
+    if (!overlay.style.display || overlay.style.display === 'none') {
       overlay.style.display = 'block';
       button.classList.add('more-splash');
       document.body.style.overflow = 'hidden';
