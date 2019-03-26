@@ -1,5 +1,6 @@
 function modal() {
-     // Модальное окно
+    // Модальное окно
+    // Модальное окно
     let more = document.querySelectorAll('.more, .description-btn'),
         overlay = document.querySelector('.overlay'),
         close = document.querySelector('.popup-close');
@@ -12,7 +13,7 @@ function modal() {
     // });
 
     function modalWindow(button) {
-        if (overlay.style.display === 'none') {
+        if (!overlay.style.display || overlay.style.display === 'none') {
             overlay.style.display = 'block';
             button.classList.add('more-splash');
             document.body.style.overflow = 'hidden';
@@ -31,7 +32,6 @@ function modal() {
     close.addEventListener('click', function() {
         modalWindow(this);
     });
-
 }
 
 module.exports = modal;

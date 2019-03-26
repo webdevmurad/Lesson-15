@@ -1,5 +1,6 @@
 function timer() {
         // Тут таймер
+    // Тут таймер
     let deadline = '2019-03-16';
 
     function getTimeRemaining(endtime) {
@@ -9,10 +10,10 @@ function timer() {
             hours = Math.floor((t / (1000 * 60 * 60)));
 
         return {
-            'total' : t,
-            'hours' : hours,
-            'minutes' : minutes,
-            'seconds' : seconds
+            'total': t,
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
         };
     }
 
@@ -23,7 +24,7 @@ function timer() {
             seconds = timer.querySelector('.seconds'),
             timeInterval = setInterval(updateClock, 1000);
 
-        function updateClock () {
+        function updateClock() {
             let t = getTimeRemaining(endtime);
             hours.textContent = Clock(t.hours);
             minutes.textContent = Clock(t.minutes);
@@ -38,7 +39,7 @@ function timer() {
             }
         }
     }
-    
+
     // Добавляю ноль
     function Clock(n) {
         if (n < 10) {

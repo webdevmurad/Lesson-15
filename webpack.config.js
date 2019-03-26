@@ -1,36 +1,35 @@
 'use strict';
 
-let path = require('path');
+const path = require('path');
 
 module.exports = {
-  mode: 'development',
-  entry: './src/index.js',
+  entry: ['@babel/polyfill', './src/index.js'],
   output: {
     filename: 'bundle.js',
-    path: __dirname + '/dist/js'
+    path: path.resolve(__dirname, '/public/')
   },
+  mode: 'development',
   watch: true,
-
-  devtool: "source-map",
+  devtool: 'source-map',
 
   module: {
     rules: [{
-      test: /\.js$/,
+      test: /.js$/,
       exclude: /node_modules/,
       use: {
         loader: 'babel-loader',
         options: {
-          presets: [
-            ["@babel/preset-env", {
-              targets: {
-                edge: "17",
-                firefox: "60",
-                chrome: "67",
-                safari: "11.1",
-                ie: "11"
-              },
-            }]
-          ]
+          'presets': [
+            [
+              "@babel/preset-env",
+              {
+                "targets": {
+                  "browsers": ['last 2 versions', "ie >= 11"]
+                }
+              }
+            ]
+          ],
+
         }
       }
     }]

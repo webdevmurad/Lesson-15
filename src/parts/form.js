@@ -89,11 +89,13 @@ function form() {
         formContact = document.querySelector('form#form'),
         statusMessage = document.createElement('div');
 
+        statusMessage.classList.add('status');
+
     function sendForm(elem) {
         elem.addEventListener('submit', function (e) {
             e.preventDefault();
             elem.appendChild(statusMessage);
-            let formData = new FormData(elem);
+            let formData = new FormData(form);
 
             function postData(data) {
                 return new Promise(function (resolve, reject) {
@@ -109,8 +111,7 @@ function form() {
                         } else if (request.readyState === 4) {
                             if (request.status == 200 && request.status < 300) {
                                 resolve();
-                            }
-                            else {
+                            } else {
                                 reject();
                             }
                         }
